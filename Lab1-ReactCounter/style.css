@@ -1,0 +1,31 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+  color: rgba(73, 3, 101, 0.87);
+  background-color: #e5d4f0;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  width: 7vw;
+  height: 6vw;
+  margin: 0 0 2vw 0;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4), -5px -5px 15px rgba(255, 255, 255, 0.7);
+}
+
+button:hover {
+  box-shadow: inset 3px 3px 15px rgba(0, 0, 0, 0.4), inset -3px -3px 6px rgba(255, 255, 255, 0.5);
+}
