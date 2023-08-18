@@ -1,0 +1,56 @@
+.flex{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 12vw 0;
+    background-color: #e1f1f2;
+    color: #2cbbc3;
+}
+
+.infoDivStyle{
+    width: 30%;
+    margin: 0 0 2vw 10vw;
+}
+
+    .petImg{
+        width: 700px;
+        margin: 0 8vw;
+    }
+
+    .marginStyle{
+        margin: 2vw 1vh;
+    }
+
+.separator{
+    width: 0;
+    height: 0;
+    border-left: 99vw solid transparent;
+    border-bottom: 22vw solid #2cbbc3;
+    margin-top: -22vw;
+}
+
+.servicesDiv{
+    text-align: center;
+    margin: 5vw;
+}
+
+    .services{
+        display: flex; 
+        justify-content: space-evenly;
+        margin: 4vw 0;
+    }
+
+    .iconDiv{
+        border-radius: 50%;
+        background-color: #e1f1f2;
+        box-shadow: inset 0px 6px 6px rgba(0, 0, 0, 0.3);
+        padding: 5vh;
+        width: 150px;
+        height: 150px;
+        display: flex;
+    }
+
+    .icon{
+        width: 120px;
+        margin: auto;
+    }

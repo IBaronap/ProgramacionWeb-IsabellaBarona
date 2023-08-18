@@ -1,0 +1,18 @@
+.mainBTN{
+    background-color: #ff9934;
+    color: white;
+  }
+
+  .mainBTN:hover{
+    background-color: #ee8821;
+  }
+
+.secondBTN{
+    background-color: transparent;
+    border: 3px solid #ff9934;
+    color: #ff9934;
+  }
+
+  .secondBTN:hover{
+    border: 3px solid #ee8821;
+  }
