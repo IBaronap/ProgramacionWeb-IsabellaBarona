@@ -1,30 +1,14 @@
 import React from 'react'
+import styles from './Button.module.css'
 
-export function Button({type}){
+export function Button ({ type, onClick }) {
+  const btnStyle = type === 'add' ? styles.add : styles.substract
 
-    let btnStyle;
-
-    if(type == 'add'){
-        btnStyle = {
-            backgroundColor: 'rgba(73, 3, 101, 0.6)',
-            color: '#eee2f6',
-            borderRadius: '25px 70px 70px 25px',
-        }
-    }
-
-    if(type == 'substract'){
-        btnStyle = {
-            backgroundColor: 'rgba(73, 3, 101, 0.3)',
-            color: '#eee2f6',
-            borderRadius: '70px 25px 25px 70px',
-        }
-    }
-
-    return (
-        <div>
-            <button style={btnStyle}> 
-                {type} 
-            </button>
-        </div>
-    )
+  return (
+    <div>
+      <button onClick={onClick} className={btnStyle}>
+        {type}
+      </button>
+    </div>
+  )
 }

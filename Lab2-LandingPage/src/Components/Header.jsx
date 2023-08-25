@@ -1,26 +1,67 @@
 import React from 'react'
 import { Menu } from './Menu'
 
-export function Header({value}){
-    
-    const divStyle = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        backgroundColor: '#e1f1f2',
-        padding: '2vh',
-        position: 'fixed',
-        width: '99%',
-        top: '0'
-    }
+export function Header () {
+  const divStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    backgroundColor: '#e1f1f2',
+    padding: '2vh',
+    position: 'fixed',
+    width: '99%',
+    height: '8vh',
+    top: '0'
+  }
 
-    const logoStyle = {
-        width: '6vh'
+  const items = [
+    {
+      id: 1,
+      text: 'Home',
+      options: null
+    },
+    {
+      id: 2,
+      text: 'Services',
+      options: [
+        {
+          id: crypto.randomUUID,
+          text: 'Veterinary'
+        },
+        {
+          id: crypto.randomUUID,
+          text: 'Grooming'
+        },
+        {
+          id: crypto.randomUUID,
+          text: 'Accesories'
+        }
+      ]
+    },
+    {
+      id: 3,
+      text: 'Contact',
+      options: null
+    },
+    {
+      id: 4,
+      text: 'About',
+      options: [
+        {
+          id: crypto.randomUUID,
+          text: 'Mision/Vision'
+        },
+        {
+          id: crypto.randomUUID,
+          text: 'History'
+        }
+      ]
     }
+  ]
 
-    return (
-        <div style={divStyle}>
-            <img style={logoStyle} src='https://img.freepik.com/free-icon/paw_318-530213.jpg?w=2000'></img>
-            <Menu/>
-        </div>
-    )
+  return (
+    <div style={divStyle}>
+      <img src='./src/Assets/brand.png' />
+      <Menu menu={items} />
+    </div>
+  )
 }
