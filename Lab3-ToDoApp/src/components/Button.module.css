@@ -1,0 +1,49 @@
+  button {
+    border-radius: 50px;
+    border: 1px solid transparent;
+    color: var(--DarkBlue);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+    &:hover {
+      font-weight: 700;
+    }
+  }
+  
+
+  /* Add button */
+  .add{
+    background-color: rgb(119, 180, 245);
+    width: 12vh;
+    height: 7vh;
+    margin: 2vh 0;
+    padding: 2vh 3vh;
+    box-shadow: -3px 0 6px rgba(119, 180, 245, 0.8);
+    &:active {
+      font-size: 12px;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    &:hover{
+      background-color: var(--Blue);
+      color: white;
+    }
+  }
+
+  /* Erase (x) button */
+  .erase{
+    border: 1px solid var(--DarkPink);
+    background-color: white;
+    width: 5vh;
+    height: 5vh;
+    font-size: small;
+    color: var(--DarkPink);
+    transition: all .25s;
+    &:active {
+      transform: scale(.8);
+    }
+    &:hover{
+      background-color: var(--DarkPink);
+      color: white;
+    }
+  }
