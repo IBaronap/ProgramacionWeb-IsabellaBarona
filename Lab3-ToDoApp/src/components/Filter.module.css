@@ -1,0 +1,30 @@
+.divFlex{
+    display: flex;
+    justify-content: space-evenly;
+    
+    margin: 2vh 0;
+}
+
+.inputDiv {
+    display: inline-block;
+    width: 20vh;
+  }
+  
+  .radioInput {
+    display: none;
+  }
+  
+  .inputLabel {
+    background-color: rgba(198, 1, 86, 0.3);
+    padding: 0.7vh 2vh;
+    border-radius: 50px;
+    transition: 0.25s;
+    &:hover{
+        cursor: pointer;
+        background-color: rgba(198, 1, 86, 0.5);
+    }
+  }
+  
+  .radioInput:checked + .inputLabel {
+    background-color: var(--DarkPink);
+  }

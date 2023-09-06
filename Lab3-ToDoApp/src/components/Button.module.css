@@ -28,6 +28,13 @@
       background-color: var(--Blue);
       color: white;
     }
+    &:disabled{
+      background-color: rgb(182, 182, 182);
+      box-shadow: -3px 0 6px rgba(182, 182, 182, 0.8);
+    }
+    &:disabled:hover{
+      background-color: rgb(136, 136, 136);
+    }
   }
 
   /* Erase (x) button */

@@ -4,8 +4,10 @@ import styles from './Form.module.css'
 
 const initInputValue = ''
 
-export function Form ({ onSubmit }) {
+export function Form ({ onSubmit, disabled }) {
   const [inputValue, setInputValue] = useState(initInputValue)
+
+  const disableBtn = inputValue.trim() === ''
 
   const handleChange = (e) => {
     setInputValue(e.target.value)
@@ -13,9 +15,7 @@ export function Form ({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    if (inputValue.trim() === '') {
-      setInputValue(initInputValue)
+    if (disableBtn) {
       return
     }
     onSubmit(inputValue)
@@ -31,7 +31,7 @@ export function Form ({ onSubmit }) {
         value={inputValue}
         onChange={handleChange}
       />
-      <Button className='add' type='submit' />
+      <Button className='add' type='submit' disabled={disableBtn} />
     </form>
   )
 }

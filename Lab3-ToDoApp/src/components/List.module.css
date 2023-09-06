@@ -11,7 +11,7 @@
   padding: 1vh 4vh;
   overflow-y: scroll;
   box-sizing: border-box;
-  height: 50vh;
+  height: 40vh;
 }
 
 /* Tasks */
@@ -34,7 +34,7 @@
     height: 4vh;
     color: var(--DarkBlue);
     border: 1px solid var(--Blue);
-    border-radius: 15px;
+    border-radius: 50%;
     appearance: none;
     cursor: pointer;
     transition: 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
@@ -46,15 +46,15 @@
     &::before {
       position: absolute;
       content: '';
-      top: 0.5vh;
-      left: 1.2vh;
       width: 8px;
       height: 14px;
       border-style: solid;
       border-color: white;
       border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
+      transform: translate(-50%, -60%) rotate(45deg);
       opacity: 0;
+      top: 50%;
+      left: 50%;
     }
     &:checked {
       color: white;
