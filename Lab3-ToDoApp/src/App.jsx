@@ -58,34 +58,53 @@ export function App () {
   }
 
   // Filtrar tareas
-  const handleFilterChange = (selectedFilter) => {
-    setFilter(selectedFilter)
+
+  const filters = [
+    {
+      id: 1,
+      label: 'All',
+      value: 'all'
+    },
+    {
+      id: 2,
+      label: 'Completed',
+      value: 'completed'
+    },
+    {
+      id: 3,
+      label: 'Pending',
+      value: 'pending'
+    }
+  ]
+
+  const handleFilterChange = (filterValue) => {
+    console.log(filterValue)
+    setFilter(filterValue)
   }
 
-  // Filtro con filter
-  // const filteredTasks = tasks.filter((task) => {
-  //   if (filter === 'all') {
-  //     return true
-  //   } else if (filter === 'completed') {
-  //     return task.completed
-  //   } else {
-  //     return !task.completed
-  //   }
-  // })
-
-  // Filtro con map
-  const filteredTasks = tasks.map((task) => {
-    if (filter === 'all') {
-      return task
-    } else if (filter === 'completed' && task.completed) {
-      return task
-    } else if (filter === 'pending' && !task.completed) {
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === 'completed') {
+      return task.completed
+    } if (filter === 'pending') {
+      return !task.completed
+    } else {
       return task
     }
+  })
 
-    console.log('Filtered amount ' + tasks.length)
-    return null
-  }).filter((task) => task !== null)
+  // Filtro con map
+  // const filteredTasks = tasks.map((task) => {
+  //   if (filter === 'all') {
+  //     return task
+  //   } else if (filter === 'completed' && task.completed) {
+  //     return task
+  //   } else if (filter === 'pending' && !task.completed) {
+  //     return task
+  //   }
+
+  //   console.log('Filtered amount ' + tasks.length)
+  //   return null
+  // }).filter((task) => task !== null)
 
   // Contar tareas
   const taskAmount = () => {
@@ -96,8 +115,6 @@ export function App () {
         return tasks.filter(task => task.completed).length
       case 'pending':
         return tasks.filter(task => !task.completed).length
-      default:
-        return 0 // Filtro no válido
     }
   }
 
@@ -112,14 +129,21 @@ export function App () {
         {
           hasTasks
             ? <div>
-              <Filter onFilterChange={handleFilterChange} />
+              <Filter
+                filters={filters}
+                onChange={handleFilterChange}
+                currentValue={filter}
+              />
+              {/* <Filter onFilterChange={handleFilterChange} /> */}
+
               <p>Quantity: {taskAmount()}</p>
               <List
+                currentValue={filter}
                 tasks={filteredTasks}
                 onToggle={handleToggle}
                 onClick={handleDelete}
               />
-              </div>
+            </div>
             : <p>There are no tasks to show</p>
         }
       </main>

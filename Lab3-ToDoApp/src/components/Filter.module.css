@@ -1,13 +1,11 @@
-.divFlex{
+.ulFlex{
     display: flex;
-    justify-content: space-evenly;
-    
+    justify-content: space-around;
     margin: 2vh 0;
 }
 
-.inputDiv {
+.inputLi {
     display: inline-block;
-    width: 20vh;
   }
   
   .radioInput {
