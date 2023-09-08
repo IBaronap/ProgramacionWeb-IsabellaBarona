@@ -1,12 +1,21 @@
-import React, { useState } from 'react'
-import { Form, Filter, List } from './components'
+import React, { useState, useEffect } from 'react'
+import 'animate.css'
+import { Form, Filter, List, Footer } from './components'
 
 // Estado inicial
-const initTaskState = []
+const initTaskState = JSON.parse(window.localStorage.getItem('Tasks')) ?? []
 
 export function App () {
   const [tasks, setTasks] = useState(initTaskState)
   const [filter, setFilter] = useState('all')
+  const [tasksToDelete, setTasksToDelete] = useState([])
+
+  // Local Storage
+  useEffect(() => {
+    console.log('Saved in Local Host')
+    window.localStorage.setItem('Tasks', JSON.stringify(tasks))
+  }, [tasks]
+  )
 
   // Crear tareas
   const createTasks = (text) => {
@@ -16,8 +25,6 @@ export function App () {
       completed: false
     }
     setTasks(prevState => [...prevState, newTask])
-
-    console.log(newTask)
   }
 
   const hasTasks = tasks.length > 0
@@ -53,12 +60,10 @@ export function App () {
     console.log(data)
     const { id } = data
     const deleteTask = tasks.filter((task) => task.id !== id)
-    console.log(deleteTask)
     setTasks(deleteTask)
   }
 
   // Filtrar tareas
-
   const filters = [
     {
       id: 1,
@@ -107,46 +112,53 @@ export function App () {
   // }).filter((task) => task !== null)
 
   // Contar tareas
-  const taskAmount = () => {
-    switch (filter) {
-      case 'all':
-        return tasks.length
-      case 'completed':
-        return tasks.filter(task => task.completed).length
-      case 'pending':
-        return tasks.filter(task => !task.completed).length
-    }
+  const completedTasks = tasks.filter(task => task.completed).length
+  const allTasks = tasks.length
+
+  // Borrar todas las completadas
+  const handleDeleteAll = () => {
+    const completedTaskIds = tasks.filter((task) => task.completed).map((task) => task.id)
+
+    // Agregar la clase de animación a todas las tareas completadas
+    const updatedTasks = tasks.map((task) => {
+      if (task.completed) {
+        return { ...task, animationClass: 'animate__animated animate__fadeOutRightBig' }
+      }
+      return task
+    })
+
+    setTasksToDelete(completedTaskIds)
+
+    // Agregar una pausa antes de eliminar las tareas
+    setTimeout(() => {
+      const newTasks = updatedTasks.filter((task) => !task.completed)
+      setTasks(newTasks)
+    }, 500) // Asegúrate de ajustar el tiempo adecuadamente
   }
 
   // Render
   return (
-    <>
+    <div className='animate__animated animate__fadeInDown'>
       <header className='Header'>
         <h1>To-do list</h1>
         <Form onSubmit={createTasks} />
       </header>
       <main>
-        {
-          hasTasks
-            ? <div>
-              <Filter
-                filters={filters}
-                onChange={handleFilterChange}
-                currentValue={filter}
-              />
-              {/* <Filter onFilterChange={handleFilterChange} /> */}
-
-              <p>Quantity: {taskAmount()}</p>
-              <List
-                currentValue={filter}
-                tasks={filteredTasks}
-                onToggle={handleToggle}
-                onClick={handleDelete}
-              />
-            </div>
-            : <p>There are no tasks to show</p>
-        }
+        <Filter
+          filters={filters}
+          onChange={handleFilterChange}
+          currentValue={filter}
+        />
+        <List
+          showList={hasTasks}
+          currentValue={filter}
+          tasks={filteredTasks}
+          onToggle={handleToggle}
+          onClick={handleDelete}
+          tasksToDelete={tasksToDelete}
+        />
+        <Footer completedTasks={completedTasks} allTasks={allTasks} onClick={handleDeleteAll} />
       </main>
-    </>
+    </div>
   )
 }

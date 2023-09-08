@@ -2,8 +2,18 @@ import React from 'react'
 import styles from './Button.module.css'
 
 export function Button ({ className, onClick, disabled }) {
-  const btnStyle = className === 'add' ? styles.add : styles.erase
-  const content = className === 'add' ? 'Add' : 'X'
+  let btnStyle, content
+
+  if (className === 'add') {
+    btnStyle = styles.add
+    content = 'Add'
+  } else if (className === 'erase') {
+    btnStyle = styles.erase
+    content = 'X'
+  } else if (className === 'clearAll') {
+    btnStyle = styles.clearAll
+    content = 'Clear'
+  }
 
   return (
     <div>

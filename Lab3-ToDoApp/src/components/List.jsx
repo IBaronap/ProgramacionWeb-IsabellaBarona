@@ -1,32 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from './Button'
 import styles from './List.module.css'
 
-export function List ({ tasks, onToggle, onClick }) {
+export function List ({ tasks, onToggle, onClick, showList, tasksToDelete }) {
   const handleToggle = (data) => onToggle(data)
   const handleDelete = (data) => onClick(data)
 
   return (
     <div className={styles.card}>
       <ul className={styles.list}>
-        {
-          tasks.map((item) => {
+        {showList
+          ? tasks.map((item) => {
+            const deleteAllAnimation = tasksToDelete.includes(item.id)
+              ? 'animate__animated animate__fadeOutRightBig'
+              : ''
             return (
               <Task
                 key={item.id}
                 item={item}
                 onToggle={handleToggle}
                 onClick={handleDelete}
+                animationClass={item.animationClass || ''}
+                deleteAllAnimation={deleteAllAnimation}
               />
             )
           })
-        }
+          : <p className={`${styles.altText} animate__animated animate__fadeIn`}>There are no tasks to show</p>}
       </ul>
+
     </div>
   )
 }
 
-function Task ({ item, onToggle, onClick }) {
+function Task ({ item, onToggle, onClick, deleteAllAnimation }) {
+  const [animationClass, setAnimationClass] = useState('')
+
   const { id, text, completed } = item
 
   const handleCheckboxChange = ({ target }) => {
@@ -39,11 +47,18 @@ function Task ({ item, onToggle, onClick }) {
   }
 
   const handleDelete = () => {
-    onClick({ id })
+    setAnimationClass('animate__animated animate__fadeOutRightBig')
+
+    setTimeout(() => {
+      onClick({ id })
+    }, 500)
   }
 
   return (
-    <div key={id} className={styles.task}>
+    <div
+      key={id}
+      className={`${styles.task} animate__animated animate__backInDown ${animationClass} ${deleteAllAnimation} `}
+    >
       <input
         type='checkbox'
         id='check'

@@ -1,7 +1,7 @@
 .ulFlex{
     display: flex;
     justify-content: space-around;
-    margin: 2vh 0;
+    margin: 3vh 0;
 }
 
 .inputLi {
