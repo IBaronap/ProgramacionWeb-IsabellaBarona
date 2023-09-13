@@ -1,8 +1,7 @@
 import React from 'react'
-import { Form, Gifs, Footer } from './components'
+import { Form, Gifs } from './components'
 
 export function App () {
-
   // Render
   return (
     <div>

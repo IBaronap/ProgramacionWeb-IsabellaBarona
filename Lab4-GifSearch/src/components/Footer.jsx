@@ -1,7 +1,6 @@
 import React from 'react'
-import { Button } from './Button'
 
-export function Footer ({  }) {
+export function Footer () {
   const divStyle = {
     backgroundColor: '#45A29E',
     fontSize: 'small',
