@@ -1,5 +1,4 @@
-export * from './Form'
-export * from './Gifs'
-export * from './Footer'
+export * from './Form/Form'
+export * from './Gifs/Gifs'
 
-export * from './Button'
+export * from './Button/Button'
