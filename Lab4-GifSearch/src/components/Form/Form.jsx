@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import { Button } from '../Button/Button'
 import styles from './Form.module.css'
 
-export function Form ({ onSubmit, disabled }) {
+export function Form ({ onSubmit, onChange }) {
   const [query, setQuery] = useState('')
 
   const disableBtn = query.trim() === ''
 
   const handleChange = (e) => {
     setQuery(e.target.value)
+    onChange(query)
   }
 
   const handleSubmit = (e) => {
@@ -23,7 +24,7 @@ export function Form ({ onSubmit, disabled }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.formDiv}>
+    <form onChange={handleChange} onSubmit={handleSubmit} className={styles.formDiv}>
       <input
         type='text'
         placeholder='Search a Gif'

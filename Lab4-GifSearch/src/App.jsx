@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Form, Gifs } from './components'
+import React, { useCallback, useEffect, useState } from 'react'
+import { Header, Form, Gifs } from './components'
 import { fetchGifs } from './services/fetchGif'
 
 export function App () {
@@ -14,24 +14,35 @@ export function App () {
     console.log(query)
   }
 
-  // Fetching
-  useEffect(() => {
+  const handleOnChange = (query) => {
+    setQuery(query)
+    console.log(query)
+  }
+
+  const getGifs = useCallback(() => {
     setIsLoading(true)
 
     fetchGifs({ query, limit: 12 })
       .then(newGif => setGifs(newGif))
       .catch(e => setError(e))
       .finally(() => setIsLoading(false))
+  }, [])
+
+  // Fetching
+  useEffect(() => {
+    getGifs()
   }, [query])
+
+  useEffect(() => {
+    console.log('getGifs volvió a definirse')
+  }, [getGifs])
 
   // Render
   return (
     <div>
-      <header className='Header'>
-        <h1>GIF SEARCH APP</h1>
-      </header>
+      <Header title='GIF SEARCH APP' />
       <main>
-        <Form onSubmit={handleFormSubmit} />
+        <Form onSubmit={handleFormSubmit} onChange={handleOnChange} />
         <Gifs gifs={gifs} error={error} loading={isLoading} />
       </main>
     </div>
