@@ -23,3 +23,8 @@
             width: 35vh;
             height: 35vh;
         }
+
+        .loadingGif{
+            height: 15vh;
+            margin-top: 5vh;
+        }

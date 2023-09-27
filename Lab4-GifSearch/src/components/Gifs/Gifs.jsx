@@ -5,7 +5,7 @@ export function Gifs ({ gifs, error, loading, query, isFirstTime }) {
   const hasGifs = gifs.length > 0
 
   if (loading) {
-    return (<img src='https://www.onwebchat.com/img/spinner.gif' />)
+    return (<img className={styles.loadingGif} src='https://hotelnumberfour.com/wp-content/uploads/2017/09/loading.gif' />)
   }
 
   if (error) {
