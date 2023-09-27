@@ -1,0 +1,30 @@
+.gifGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5vh;
+    gap: 2vh;
+    list-style: none;
+}
+
+    .card {
+        background-color: var(--DarkGrey);
+        box-shadow: inset 5px 5px 7px rgba(0, 0, 0, 0.5); 
+        color: white;
+        padding: 4vh 2vw 1vh 2vw;
+        margin: 1vh 2vh;
+        border-radius: 10px;
+        transition: 0.25s;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+
+        .gif{
+            width: 35vh;
+            height: 35vh;
+        }
+
+        .loadingGif{
+            height: 15vh;
+            margin-top: 5vh;
+        }
