@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Gifs.module.css'
 
-export function Gifs ({ gifs, error, loading }) {
+export function Gifs ({ gifs, error, loading, query, isFirstTime }) {
   const hasGifs = gifs.length > 0
 
   if (loading) {
@@ -12,8 +12,8 @@ export function Gifs ({ gifs, error, loading }) {
     return (<p>{error}</p>)
   }
 
-  if (!hasGifs) {
-    return <p>There are no results</p>
+  if (!hasGifs && !isFirstTime) {
+    return <p>There are no results for <i>"{query}"</i></p>
   }
 
   return (

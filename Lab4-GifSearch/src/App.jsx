@@ -1,37 +1,39 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, useRef } from 'react'
 import { Header, Form, Gifs } from './components'
 import { fetchGifs } from './services/fetchGif'
+import debounce from 'just-debounce-it'
 
 export function App () {
   const [query, setQuery] = useState('')
   const [error, setError] = useState(null)
-  const [gifs, setGifs] = useState('')
+  const [gifs, setGifs] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  // Submit
-  const handleFormSubmit = (query) => {
-    setQuery(query)
-    console.log(query)
-  }
+  // First time
+  const isFirstTime = useRef(true)
 
-  const handleOnChange = (query) => {
-    setQuery(query)
-    console.log(query)
-  }
+  useEffect(() => {
+    if (isFirstTime.current) {
+      isFirstTime.current = (query === '')
+    }
+  }, [query])
 
-  const getGifs = useCallback(() => {
+  // Submit / input change
+  const handleUserSubmit = (query) => {
     setIsLoading(true)
-
-    fetchGifs({ query, limit: 12 })
-      .then(newGif => setGifs(newGif))
-      .catch(e => setError(e))
-      .finally(() => setIsLoading(false))
-  }, [])
+    getGifs(query)
+    setQuery(query)
+  }
 
   // Fetching
-  useEffect(() => {
-    getGifs()
-  }, [query])
+  const getGifs = useCallback(
+    debounce((query) => {
+      fetchGifs({ query, limit: 12 })
+        .then(newGif => setGifs(newGif))
+        .catch(e => setError(e))
+        .finally(() => setIsLoading(false))
+    }, 500)
+    , [])
 
   useEffect(() => {
     console.log('getGifs volvió a definirse')
@@ -42,8 +44,8 @@ export function App () {
     <div>
       <Header title='GIF SEARCH APP' />
       <main>
-        <Form onSubmit={handleFormSubmit} onChange={handleOnChange} />
-        <Gifs gifs={gifs} error={error} loading={isLoading} />
+        <Form onSubmit={handleUserSubmit} onChange={handleUserSubmit} />
+        <Gifs gifs={gifs} error={error} loading={isLoading} query={query} isFirstTime={isFirstTime.current} />
       </main>
     </div>
   )

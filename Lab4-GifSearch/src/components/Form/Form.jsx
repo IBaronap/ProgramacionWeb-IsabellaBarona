@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Button } from '../Button/Button'
 import styles from './Form.module.css'
 
 export function Form ({ onSubmit, onChange }) {
   const [query, setQuery] = useState('')
+  const inputRef = useRef(null)
 
   const disableBtn = query.trim() === ''
 
@@ -31,6 +32,7 @@ export function Form ({ onSubmit, onChange }) {
         className={styles.searchBar}
         value={query}
         onChange={handleChange}
+        ref={inputRef}
       />
       <Button title='Search' type='submit' disabled={disableBtn} />
     </form>
