@@ -3,14 +3,14 @@
   line-height: 1.5;
   font-weight: 400;
   
-    --Dark: #0B0C10;
-    --DarkGrey: #293442;
-    --Grey: #C5C6C7;
-    --Blue: #66FCF1;
-    --Aqua: #45A29E;
+    --LightYellow: #FEF9DB;
+    --Navy: #16123f;
+    --Lime: #abd699;
+    --Teal: #75c9b7;
+    --Mint: #c7ddcc;
 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: var(--Dark);
+  color: var(--Navy);
+  background-color: var(--LightYellow);
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  margin: 0 0 8vh 0;
+  margin: 0 0 3vh 0;
   font-weight: bolder;
 }
 
@@ -37,7 +37,7 @@ h1 {
 
 .Header{
   padding: 1vh;
-  color: var(--Blue);
+  color: var(--Navy);
 }
 
 /* Scrollbar */
@@ -50,7 +50,7 @@ h1 {
   }
  
   ::-webkit-scrollbar-thumb {
-    background: var(--Aqua);
+    background: var(--Teal);
     border-radius: 2px; 
   }
 

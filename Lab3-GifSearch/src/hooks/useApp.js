@@ -38,6 +38,9 @@ export const useApp = (initTaskState, initFilterState) => {
     console.log('getGifs volvió a definirse')
   }, [getGifs])
 
+  const hasGifs = gifs.length > 0
+  const gifsQuantity = gifs.length
+
   return (
     {
       query,
@@ -45,6 +48,8 @@ export const useApp = (initTaskState, initFilterState) => {
       gifs,
       isLoading,
       isFirstTime,
+      hasGifs,
+      gifsQuantity,
       handleUserSubmit
     }
   )

@@ -1,22 +1,22 @@
-.sendBtn {
-    border-radius: 0 10px 10px 0;
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5);
+.fetchBtn {
+    border-radius: 5px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
     border: none;
-    color: var(--Dark);
+    color: white;
     font-size: 1em;
-    font-weight: 400;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.25s;
-    background-color: var(--Blue);
-    width: 12vh;
-    height: 6vh;
-    margin: 2vh 0;
+    transition: all 0.5s;
+    background-color: var(--Lime);
+    background: linear-gradient(45deg, var(--Lime) 0%, var(--Teal) 100%);
+    width: 30vh;
+    height: 7vh;
+    margin: 2vh;
     text-align: center;
     &:hover{
-      border: 3px solid var(--Aqua);
-      background-color: var(--Dark);
-      color: white;
-      font-weight: 500;
+      transform: scale(1.1);
+      background-color: var(--Teal);
+      background: linear-gradient(45deg, var(--Teal) 0%, var(--Lime) 100%);
     }
     &:disabled{
       background-color: rgb(182, 182, 182);
@@ -26,7 +26,6 @@
       border: none;
     }
     &:active {
-      font-size: large;
-      background-color: var(--Aqua);
+      background-color: var(--Teal);
     }
   }

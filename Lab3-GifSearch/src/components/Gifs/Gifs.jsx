@@ -1,9 +1,7 @@
 import React from 'react'
 import styles from './Gifs.module.css'
 
-export function Gifs ({ gifs, error, loading, query, isFirstTime }) {
-  const hasGifs = gifs.length > 0
-
+export function Gifs ({ gifs, hasGifs, error, loading, query, isFirstTime }) {
   if (loading) {
     return (<img className={styles.loadingGif} src='https://hotelnumberfour.com/wp-content/uploads/2017/09/loading.gif' />)
   }

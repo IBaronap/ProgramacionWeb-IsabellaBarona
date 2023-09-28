@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './Button.module.css'
 
-export function Button ({ title, onClick, disabled }) {
+export function Button ({ title, onClick }) {
   return (
     <div>
-      <button className={styles.sendBtn} onClick={onClick}>{title}</button>
+      <button className={styles.fetchBtn} onClick={onClick}>{title}</button>
     </div>
   )
 }

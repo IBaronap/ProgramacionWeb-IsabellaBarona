@@ -1,5 +1,4 @@
 export * from './Header/Header'
-export * from './Form/Form'
-export * from './Gifs/Gifs'
+export * from './Facts/Facts'
 
 export * from './Button/Button'

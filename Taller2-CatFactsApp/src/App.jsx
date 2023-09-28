@@ -1,24 +1,24 @@
 import React from 'react'
-import { Header, Form, Gifs } from './components'
+import { Header, Button, Facts } from './components'
 import { useApp } from './hooks/useApp.js'
 
 export function App () {
   const {
-    query,
     error,
-    gifs,
+    catImg,
+    catFact,
     isLoading,
     isFirstTime,
-    handleUserSubmit
+    handleBTN
   } = useApp()
 
   // Render
   return (
     <div>
-      <Header title='GIF SEARCH APP' />
+      <Header title='Random Cat Facts' />
       <main>
-        <Form onSubmit={handleUserSubmit} onChange={handleUserSubmit} />
-        <Gifs gifs={gifs} error={error} loading={isLoading} query={query} isFirstTime={isFirstTime.current} />
+        <Facts text={catFact} img={catImg} loading={isLoading} error={error} isFirstTime={isFirstTime} />
+        <Button title='Get a new fact!' onClick={handleBTN} />
       </main>
     </div>
   )
