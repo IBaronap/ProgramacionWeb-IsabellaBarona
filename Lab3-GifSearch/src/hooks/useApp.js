@@ -1,15 +1,25 @@
-import { useCallback, useEffect, useState, useRef } from 'react'
+import { useCallback, useEffect, useContext } from 'react'
 import { fetchGifs } from '../services/fetchGif'
 import debounce from 'just-debounce-it'
+import { GifContext } from '../context/GifContext'
 
-export const useApp = (initTaskState, initFilterState) => {
-  const [query, setQuery] = useState('')
-  const [error, setError] = useState(null)
-  const [gifs, setGifs] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+export const useApp = () => {
+  const context = useContext(GifContext)
 
-  // Para que el mensaje de que no se encontró gifs no se muestre a la primera
-  const isFirstTime = useRef(true)
+  if (!context) {
+    throw new Error('This component sould be within a GifsContextrovider Component')
+  }
+  const {
+    query,
+    setQuery,
+    error,
+    setError,
+    gifs,
+    setGifs,
+    isLoading,
+    setIsLoading,
+    isFirstTime
+  } = context
 
   useEffect(() => {
     if (isFirstTime.current) {
@@ -38,9 +48,6 @@ export const useApp = (initTaskState, initFilterState) => {
     console.log('getGifs volvió a definirse')
   }, [getGifs])
 
-  const hasGifs = gifs.length > 0
-  const gifsQuantity = gifs.length
-
   return (
     {
       query,
@@ -48,8 +55,6 @@ export const useApp = (initTaskState, initFilterState) => {
       gifs,
       isLoading,
       isFirstTime,
-      hasGifs,
-      gifsQuantity,
       handleUserSubmit
     }
   )

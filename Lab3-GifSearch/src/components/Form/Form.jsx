@@ -1,28 +1,20 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import { Button } from '../Button/Button'
 import styles from './Form.module.css'
 
-export function Form ({ onSubmit, onChange }) {
-  const [query, setQuery] = useState('')
-  const inputRef = useRef(null)
+import { useApp } from '../../hooks/useApp'
+import { useForm } from '../../hooks/useForm'
 
-  const disableBtn = query.trim() === ''
+export function Form () {
+  const { handleUserSubmit } = useApp()
 
-  const handleChange = (e) => {
-    setQuery(e.target.value)
-    onChange(query)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (query.trim() === '' || query.trim().length < 2) {
-      return
-    }
-    if (disableBtn) {
-      return
-    }
-    onSubmit(query)
-  }
+  const {
+    handleSubmit,
+    handleChange,
+    query,
+    inputRef,
+    disableBtn
+  } = useForm(handleUserSubmit)
 
   return (
     <form onChange={handleChange} onSubmit={handleSubmit} className={styles.formDiv}>

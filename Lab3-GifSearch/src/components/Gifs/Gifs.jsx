@@ -1,8 +1,19 @@
-import React from 'react'
 import styles from './Gifs.module.css'
+import React from 'react'
+import { useApp } from '../../hooks/useApp'
 
-export function Gifs ({ gifs, hasGifs, error, loading, query, isFirstTime }) {
-  if (loading) {
+export function Gifs () {
+  const {
+    query,
+    error,
+    gifs,
+    isLoading,
+    isFirstTime
+  } = useApp()
+
+  const hasGifs = gifs.length > 0
+
+  if (isLoading) {
     return (<img className={styles.loadingGif} src='https://hotelnumberfour.com/wp-content/uploads/2017/09/loading.gif' />)
   }
 

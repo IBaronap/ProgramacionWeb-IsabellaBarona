@@ -1,9 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useContext } from 'react'
+import { TodoContext } from '../context/TodoContext'
 
-export const useTasks = (initTaskState, initFilterState) => {
-  const [tasks, setTasks] = useState(initTaskState) // Para array de tareas
-  const [filter, setFilter] = useState(initFilterState) // Para los filtros
-  const [tasksToDelete, setTasksToDelete] = useState([]) // Para animar las tareas que se eliminan a la vez
+export const useTasks = () => {
+  const context = useContext(TodoContext)
+
+  if (!context) {
+    throw new Error('This component sould be within a TodoContextrovider Component')
+  }
+  const {
+    tasks,
+    setTasks,
+    currentFilter,
+    setFilter,
+    tasksToDelete,
+    setTasksToDelete
+  } = context
 
   // Local Storage
   useEffect(() => {
@@ -12,8 +23,8 @@ export const useTasks = (initTaskState, initFilterState) => {
   )
 
   useEffect(() => {
-    window.localStorage.setItem('Filter', JSON.stringify(filter))
-  }, [filter]
+    window.localStorage.setItem('Filter', JSON.stringify(currentFilter))
+  }, [currentFilter]
   )
 
   // Crear tareas
@@ -69,9 +80,9 @@ export const useTasks = (initTaskState, initFilterState) => {
   }
 
   const filteredTasks = tasks.filter((task) => {
-    if (filter === 'completed') {
+    if (currentFilter === 'completed') {
       return task.completed
-    } if (filter === 'pending') {
+    } if (currentFilter === 'pending') {
       return !task.completed
     } else {
       return task
@@ -102,7 +113,7 @@ export const useTasks = (initTaskState, initFilterState) => {
 
   return (
     {
-      filter,
+      currentFilter,
       createTasks,
       hasTasks,
       handleToggle,

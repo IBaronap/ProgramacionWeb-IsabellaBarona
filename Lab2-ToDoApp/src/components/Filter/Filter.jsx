@@ -1,10 +1,17 @@
 import React from 'react'
 // import { useState } from 'react'
 import styles from './Filter.module.css'
+import { filters } from '../../const/filters'
+import { useTasks } from '../../hooks/useTasks'
 
-export function Filter ({ onChange, currentValue, filters }) {
+export function Filter () {
+  const {
+    currentFilter,
+    handleFilterChange
+  } = useTasks()
+
   const handleChange = ({ target }) => {
-    onChange(target.value)
+    handleFilterChange(target.value)
   }
 
   return (
@@ -19,7 +26,7 @@ export function Filter ({ onChange, currentValue, filters }) {
                 value={value}
                 name='filter'
                 onChange={handleChange}
-                checked={(currentValue === value)}
+                checked={(currentFilter === value)}
                 className={styles.radioInput}
               />
               <label htmlFor={id} className={styles.inputLabel}>{label}</label>

@@ -1,7 +1,7 @@
-export * from './Header'
-export * from './Form'
-export * from './Filter'
-export * from './List'
-export * from './Footer'
+export * from './Header/Header'
+export * from './Form/Form'
+export * from './Filter/Filter'
+export * from './List/List'
+export * from './Footer/Footer'
 
-export * from './Button'
+export * from './Button/Button'

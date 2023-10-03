@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
-import { Button } from './Button'
+import { Button } from '../Button/Button'
 import styles from './List.module.css'
+import { useTasks } from '../../hooks/useTasks'
 
-export function List ({ tasks, onToggle, onClick, showList, tasksToDelete }) {
-  const handleToggle = (data) => onToggle(data)
-  const handleDelete = (data) => onClick(data)
+export function List () {
+  const {
+    filteredTasks,
+    hasTasks,
+    tasksToDelete,
+    handleDelete,
+    handleToggle
+  } = useTasks()
 
   return (
     <div className={styles.card}>
       <ul className={styles.list}>
-        {showList
-          ? tasks.map((item) => {
+        {hasTasks
+          ? filteredTasks.map((item) => {
             const deleteAllAnimation = tasksToDelete.includes(item.id)
               ? 'animate__animated animate__fadeOutRightBig'
               : ''
