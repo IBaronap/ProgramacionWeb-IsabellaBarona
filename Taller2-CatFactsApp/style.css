@@ -57,3 +57,9 @@ h1 {
   ::-webkit-scrollbar-thumb:hover {
     background: #2b8782; 
   }
+
+/* Loading */
+.loadingGif{
+  margin: 5vh;
+  width: 30vh;
+}

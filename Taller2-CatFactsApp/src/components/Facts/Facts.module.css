@@ -23,8 +23,3 @@
             font-weight: 600;
             color: var(--Navy);
         }
-
-        .loadingGif{
-            margin: 5vh;
-            width: 30vh;
-        }

@@ -1,11 +1,7 @@
 import React from 'react'
 import styles from './Facts.module.css'
 
-export function Facts ({ text, img, loading, error, isFirstTime }) {
-  if (loading) {
-    return (<img className={styles.loadingGif} src='./src/Assets/LoadingGif.gif' />)
-  }
-
+export function Facts ({ text, img, error, isFirstTime }) {
   if (error) {
     return (<p>{error}</p>)
   }

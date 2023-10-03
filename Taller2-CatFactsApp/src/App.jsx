@@ -13,11 +13,19 @@ export function App () {
   } = useApp()
 
   // Render
+  if (isLoading) {
+    return (
+      <div>
+        <Header title='Random Cat Facts' />
+        <img className='loadingGif' src='./src/Assets/LoadingGif.gif' />
+      </div>
+    )
+  }
   return (
     <div>
       <Header title='Random Cat Facts' />
       <main>
-        <Facts text={catFact} img={catImg} loading={isLoading} error={error} isFirstTime={isFirstTime} />
+        <Facts text={catFact} img={catImg} error={error} isFirstTime={isFirstTime} />
         <Button title='Get a new fact!' onClick={handleBTN} />
       </main>
     </div>
