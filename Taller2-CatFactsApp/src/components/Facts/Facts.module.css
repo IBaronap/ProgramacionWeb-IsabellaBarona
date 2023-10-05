@@ -1,6 +1,5 @@
     .card {
         background-color: var(--Mint);
-        /* background: linear-gradient(45deg, var(--Teal) 0%, var(--Lime) 100%); */
         box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
         color: var(--Navy);
         margin: 1vh auto;

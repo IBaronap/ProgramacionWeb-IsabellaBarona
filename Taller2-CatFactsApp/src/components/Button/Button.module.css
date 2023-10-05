@@ -19,11 +19,12 @@
       background: linear-gradient(45deg, var(--Teal) 0%, var(--Lime) 100%);
     }
     &:disabled{
+      background: rgb(182, 182, 182);
       background-color: rgb(182, 182, 182);
     }
     &:disabled:hover{
-      background-color: rgb(136, 136, 136);
-      border: none;
+      transform: scale(1);
+      cursor: auto;
     }
     &:active {
       background-color: var(--Teal);

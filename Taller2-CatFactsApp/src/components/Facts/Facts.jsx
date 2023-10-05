@@ -1,9 +1,24 @@
 import React from 'react'
 import styles from './Facts.module.css'
+import { useApp } from '../../hooks/useApp'
 
-export function Facts ({ text, img, error, isFirstTime }) {
+export function Facts () {
+  const {
+    catFact,
+    catImg,
+    error,
+    isLoading,
+    isFirstTime
+  } = useApp()
+
   if (error) {
     return (<p>{error}</p>)
+  }
+
+  if (isLoading) {
+    return (
+      <img className='loadingGif' src='./src/Assets/LoadingGif.gif' />
+    )
   }
 
   if (isFirstTime.current) {
@@ -14,8 +29,8 @@ export function Facts ({ text, img, error, isFirstTime }) {
 
   return (
     <div className={styles.card}>
-      <img className={styles.cat_img} src={img} />
-      <p className={styles.cat_fact}>{text}</p>
+      <img className={styles.cat_img} src={catImg} />
+      <p className={styles.cat_fact}>{catFact}</p>
     </div>
   )
 }

@@ -1,47 +1,57 @@
-import { useCallback, useEffect, useState, useRef } from 'react'
+import { useCallback, useEffect, useContext } from 'react'
 import { fetchImg, fetchFact } from '../services/fetch'
 import debounce from 'just-debounce-it'
+import { CatContext } from '../Context/CatContext'
 
 export const useApp = () => {
-  const [error, setError] = useState(null)
-  const [catImg, setCatImg] = useState('')
-  const [catFact, setCatFact] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const context = useContext(CatContext)
 
-  // Para que el mensaje de que no se encontró gifs no se muestre a la primera
-  const isFirstTime = useRef(true)
+  if (!context) {
+    throw new Error('This component sould be within a GifsContextrovider Component')
+  }
+  const {
+    error,
+    setError,
+    catFact,
+    setCatFact,
+    catImg,
+    setCatImg,
+    isLoading,
+    setIsLoading,
+    isFirstTime
+  } = context
 
+  // Para mostrar mensaje si es la primera vez
   useEffect(() => {
     if (isFirstTime.current) {
       isFirstTime.current = (catFact === '')
     }
   }, [catFact])
 
-  // Submit / input change
+  // Pedir nuevo Fact e img con el boton
   const handleBTN = () => {
     setIsLoading(true)
     getFact()
   }
 
-  // Fetching
-
+  // Fetching de fact
   const getFact = useCallback(
     debounce(() => {
       fetchFact()
         .then(newFact => {
-          setCatFact(newFact)
-          const newImgText = newFact.split(' ').slice(0, 4).join(' ')
-          getImg(newImgText)
+          setCatFact(newFact) // Setea el dato
+          const newImgText = newFact.split(' ').slice(0, 4).join(' ') // Corta el texto para que solo sea 4 palabras
+          getImg(newImgText) // Llama al fetch de la imagen y le envia el texto de 4 palabras
         })
         .catch(e => setError(e))
     }, 500)
     , [])
 
-  // Get img
+  // Fetching de img
   const getImg = useCallback(
     debounce((newImgText) => {
-      fetchImg({ newImgText })
-        .then(newImg => setCatImg(newImg))
+      fetchImg({ newImgText }) // Hace fetch con el texto
+        .then(newImg => setCatImg(newImg)) // Setea la imagen
         .catch(e => setError(e))
         .finally(() => setIsLoading(false))
     }, 500)
@@ -49,7 +59,7 @@ export const useApp = () => {
 
   useEffect(() => {
     console.log('getFact volvió a definirse')
-  }, [getFact, getImg])
+  }, [getFact])
 
   useEffect(() => {
     console.log('getImg volvió a definirse')
