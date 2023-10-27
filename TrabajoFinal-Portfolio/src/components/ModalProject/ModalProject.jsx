@@ -5,7 +5,7 @@ export function ModalProject () {
   const ProjectInfo = [
     {
       id: 1,
-      images: ['./src/Assets/Project1.png', './src/Assets/Project2.png', './src/Assets/Project3.png'],
+      images: ['./src/components/Assets/Project1.png', './src/components/Assets/Project2.png', './src/components/Assets/Project3.png'],
       title: 'Nintendo OOH Experience',
       type: 'UI - Branding',
       members: 'Isabella Barona, Andrés Narvaez',

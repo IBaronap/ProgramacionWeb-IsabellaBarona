@@ -23,7 +23,7 @@ export function ProjectForm () {
           <div className={styles.ImagesSection}>
             {selectedImagesCount === 0
               ? (
-                <img className={styles.LoadImg} src='./src/Assets/IconLoadImage.svg' alt='Load icon' />
+                <img className={styles.LoadImg} src='./src/components/Assets/IconLoadImage.svg' alt='Load icon' />
                 )
               : (
                 <h2 className={styles.LoadText}>{`${selectedImagesCount}  selected`}</h2>

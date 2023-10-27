@@ -3,7 +3,7 @@
   }
 
 .DivLogo {
-    background-color: #FF8500;
+    background-color: var(--MainOrange);
     width: 45vw;
     height: 100vh;
     display: flex;

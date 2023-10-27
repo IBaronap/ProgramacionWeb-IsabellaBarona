@@ -6,32 +6,32 @@ export function ServicesSlider () {
     {
       id: 1,
       text: 'UX Design',
-      icon: './src/Assets/IconUX.svg',
-      iconWhite: './src/Assets/IconWhiteUX.svg'
+      icon: './src/components/Assets/IconUX.svg',
+      iconWhite: './src/components/Assets/IconWhiteUX.svg'
     },
     {
       id: 2,
       text: 'UI Design',
-      icon: './src/Assets/IconUI.svg',
-      iconWhite: './src/Assets/IconWhiteUI.svg'
+      icon: './src/components/Assets/IconUI.svg',
+      iconWhite: './src/components/Assets/IconWhiteUI.svg'
     },
     {
       id: 3,
       text: 'Frontend',
-      icon: './src/Assets/IconFrontend.svg',
-      iconWhite: './src/Assets/IconWhiteFrontend.svg'
+      icon: './src/components/Assets/IconFrontend.svg',
+      iconWhite: './src/components/Assets/IconWhiteFrontend.svg'
     },
     {
       id: 4,
       text: 'Branding',
-      icon: './src/Assets/IconBranding.svg',
-      iconWhite: './src/Assets/IconWhiteBranding.svg'
+      icon: './src/components/Assets/IconBranding.svg',
+      iconWhite: './src/components/Assets/IconWhiteBranding.svg'
     },
     {
       id: 5,
       text: 'Consultancy',
-      icon: './src/Assets/IconConsultancy.svg',
-      iconWhite: './src/Assets/IconWhiteConsultancy.svg'
+      icon: './src/components/Assets/IconConsultancy.svg',
+      iconWhite: './src/components/Assets/IconWhiteConsultancy.svg'
     }
   ]
 

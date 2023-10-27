@@ -47,11 +47,11 @@ export function TrendingCard () {
         <div className={styles.Card}>
           <h1 className={styles.Image} />
           <h3>title</h3>
-          <p className={styles.Tag}>Trending</p>
+          <p className={styles.Tag}>Top</p>
         </div>
         <div className={styles.Card2}>
           <h3>title</h3>
-          <p className={styles.Tag}>Trending</p>
+          <p className={styles.Tag}>Top</p>
         </div>
       </div>
     </div>

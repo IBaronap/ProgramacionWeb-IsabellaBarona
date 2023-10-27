@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './Button.module.css'
 
-export function Button ({ title }) {
+export function Button ({ title, onClick }) {
   return (
-    <button className={styles.Btn}>{title}</button>
+    <button onClick={onClick} className={styles.Btn}>{title}</button>
   )
 }

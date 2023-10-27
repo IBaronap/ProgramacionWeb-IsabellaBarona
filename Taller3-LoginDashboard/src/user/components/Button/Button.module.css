@@ -1,6 +1,6 @@
 .Btn{
-    width: 157px;
-    height: 56px;
+    width: 10vw;
+    height: 8vh;
     border-radius: 9px;
     background: #FF2828;
     border: none;
@@ -10,6 +10,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.5s;
+    margin: 5vh;
 
     &:hover{
         background-color: var(--MainRed);

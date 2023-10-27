@@ -1,4 +1,5 @@
 import React, { memo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '../Button/Button'
 import styles from './Header.module.css'
 
@@ -29,6 +30,8 @@ export const Header = memo(function Header () {
     src: ''
   }]
 
+  const navigate = useNavigate()
+
   return (
     <header className={styles.Header}>
       <h1>Logo</h1>
@@ -37,7 +40,7 @@ export const Header = memo(function Header () {
         <h3>Juanes</h3>
         <img src='./src/Assets/UserPic.jpeg' />
       </div>
-      <Button title='Logout' />
+      <Button onClick={() => navigate('/')} title='Logout' />
     </header>
   )
 })
