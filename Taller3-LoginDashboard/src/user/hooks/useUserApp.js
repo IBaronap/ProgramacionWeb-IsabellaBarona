@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useContext } from 'react'
 import debounce from 'just-debounce-it'
 import { fetchRecipes } from '../services/fetchRecipes'
-import { RecipeContext } from '../context/RecipeContext'
+import { UserContext } from '../context/UserContext'
 
-export const useApp = () => {
-  const context = useContext(RecipeContext)
+export const useUserApp = () => {
+  const context = useContext(UserContext)
 
   if (!context) {
-    throw new Error('This component sould be within a RecipeContextrovider Component')
+    throw new Error('This component sould be within a UserContextrovider Component')
   }
   const {
     error,
@@ -19,14 +19,8 @@ export const useApp = () => {
     isFirstTime
   } = context
 
-  //   useEffect(() => {
-  //     if (isFirstTime.current) {
-  //       isFirstTime.current = (query === '')
-  //     }
-  //   }, [query])
-
-  // Submit / input change
   useEffect(() => {
+    console.log('useApp is running')
     getRecipes()
   }, [])
 

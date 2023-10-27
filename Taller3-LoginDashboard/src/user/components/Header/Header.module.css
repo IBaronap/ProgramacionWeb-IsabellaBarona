@@ -9,6 +9,7 @@
     width: 100vw;
     height: 9vh;
     background-color: var(--MainOrange);
+    z-index: 1;
 }
 
     .Header h1{

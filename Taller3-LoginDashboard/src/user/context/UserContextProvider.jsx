@@ -1,14 +1,15 @@
-import { RecipeContext } from './RecipeContext'
+import { UserContext } from './UserContext'
 import React, { useState, useRef } from 'react'
 
-export function RecipeContextProvider ({ children }) {
+export function UserContextProvider ({ children }) {
   const [error, setError] = useState(null)
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState([{ title: 'Prueba' }])
   const [isLoading, setIsLoading] = useState(false)
 
   const isFirstTime = useRef(true)
+
   return (
-    <RecipeContext.Provider value={{
+    <UserContext.Provider value={{
       error,
       setError,
       recipes,
@@ -19,6 +20,6 @@ export function RecipeContextProvider ({ children }) {
     }}
     >
       {children}
-    </RecipeContext.Provider>
+    </UserContext.Provider>
   )
 }
