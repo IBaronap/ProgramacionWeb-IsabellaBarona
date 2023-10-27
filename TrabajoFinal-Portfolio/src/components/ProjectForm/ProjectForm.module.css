@@ -74,8 +74,8 @@
     }
 
      .TitleInput{
-         width: 650px;
-         height: 30px;
+         width: 44.5vw;
+         height: 4vh;
 
          margin: -4vh 0 2vh;
 
@@ -106,8 +106,8 @@
             }
 
         .DescriptionInput{
-            width: 650px;
-            height: 50px;
+            width: 43vw;
+            height: 11.5vh;
             resize: none;
 
             border-radius: 15px;

@@ -2,6 +2,7 @@ import { RecipesModel } from '../models/recipe.models'
 const BASE_URL = 'https://api.sampleapis.com/recipes/recipes'
 
 export const fetchRecipes = async () => {
+  console.log('Fetching recipes...')
   return fetch(`${BASE_URL}`)
     .then(res => {
       if (!res.ok) {

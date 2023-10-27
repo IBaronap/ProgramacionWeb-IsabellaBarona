@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useContext } from 'react'
-import { fetchRecipes } from '../services/fetchRecipes'
 import debounce from 'just-debounce-it'
+import { fetchRecipes } from '../services/fetchRecipes'
 import { RecipeContext } from '../context/RecipeContext'
 
 export const useApp = () => {
