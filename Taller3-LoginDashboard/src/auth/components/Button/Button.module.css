@@ -1,0 +1,18 @@
+.login{
+    margin: 1vh;
+    padding: 2vh;
+    width: 12vw;
+    background-color: var(--MainOrange);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bolder;
+
+    &:hover{
+        background-color: #e1790a;
+    }
+    &:disabled{
+        background-color: grey;
+    }
+}

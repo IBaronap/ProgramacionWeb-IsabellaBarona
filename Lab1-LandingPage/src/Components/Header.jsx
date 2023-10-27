@@ -17,7 +17,8 @@ export function Header () {
     {
       id: 1,
       text: 'Home',
-      options: null
+      options: null,
+      path: '/'
     },
     {
       id: 2,
@@ -35,12 +36,14 @@ export function Header () {
           id: crypto.randomUUID,
           text: 'Accesories'
         }
-      ]
+      ],
+      path: '/services'
     },
     {
       id: 3,
       text: 'Contact',
-      options: null
+      options: null,
+      path: '/contactus'
     },
     {
       id: 4,
@@ -54,7 +57,8 @@ export function Header () {
           id: crypto.randomUUID,
           text: 'History'
         }
-      ]
+      ],
+      path: '/aboutus'
     }
   ]
 

@@ -1,0 +1,32 @@
+.Header{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2vh 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 9vh;
+    background-color: var(--MainOrange);
+}
+
+    .Header h1{
+        margin: 0;
+    }
+
+    .Header img{
+        width: 58px;
+        height: 58px;
+        border-radius: 50px;
+        margin-left: 20px;
+    }
+
+    .Menu{
+        display: flex;
+        gap: 5vw;
+    }
+
+        .User{
+            display: flex;
+        }

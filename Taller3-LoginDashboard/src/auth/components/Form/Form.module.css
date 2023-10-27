@@ -1,0 +1,14 @@
+.FormDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input{
+    margin: 1vh auto 3vh;
+    padding: 0 2vh;
+    width: 40vh;
+    height: 4vh;
+    border-radius: 7px;
+    border: 2px solid var(--MainOrange);
+}

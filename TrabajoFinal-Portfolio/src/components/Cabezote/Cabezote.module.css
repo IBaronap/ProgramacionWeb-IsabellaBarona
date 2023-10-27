@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'Typographica';
+    src: url('./src/Assets/Typographica-Blp5.ttf');
+  }
+
+  .Slider {
+    text-align: left;
+
+    width: 98.9vw;
+    height: 444px;
+
+    margin: 0 0 5vh -4.3vh;
+
+    background-size: cover;
+}
+
+
+    .UI {
+        background-image: 
+                            linear-gradient(90deg, rgb(83, 50, 216) 0%, rgba(83, 50, 216, 0.70) 33.67%, rgba(255, 255, 255, 0.20) 100%), 
+                            /* linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.80) 33.67%, rgba(255, 255, 255, 0.20) 100%),  */
+                            url('../../Assets/SliderBranding.jpg');
+    }
+  
+    .UX {
+        background-image: 
+                            linear-gradient(90deg, rgb(83, 50, 216) 0%, rgba(83, 50, 216, 0.70) 33.67%, rgba(255, 255, 255, 0.20) 100%),
+                            /* linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.80) 33.67%, rgba(255, 255, 255, 0.20) 100%),  */
+                            url('../../Assets/SliderUX.jpg');
+    }
+
+    .Frontend {
+        background-image: 
+                            linear-gradient(90deg, rgb(83, 50, 216) 0%, rgba(83, 50, 216, 0.70) 33.67%, rgba(255, 255, 255, 0.20) 100%),
+                            /* linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.80) 33.67%, rgba(255, 255, 255, 0.20) 100%),  */
+                            url('../../Assets/SliderFrontend.png');
+    }
+
+    .Branding {
+        background-image:
+                            linear-gradient(90deg, rgb(83, 50, 216) 0%, rgba(83, 50, 216, 0.70) 33.67%, rgba(255, 255, 255, 0.20) 100%),
+                            /* linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.80) 33.67%, rgba(255, 255, 255, 0.20) 100%),  */
+                            url('../../Assets/SliderBranding.jpg');
+   }
+
+    .Consultancy {
+        background-image: 
+                            linear-gradient(90deg, rgb(83, 50, 216) 0%, rgba(83, 50, 216, 0.70) 33.67%, rgba(255, 255, 255, 0.20) 100%),
+                            /* linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.80) 33.67%, rgba(255, 255, 255, 0.20) 100%),  */
+                            url('../../Assets/SliderConsultancy.jpeg');
+    }
+
+    .Projects {
+        background-image:   
+                            linear-gradient(90deg, rgb(83, 50, 216) 0%, rgba(83, 50, 216, 0.70) 33.67%, rgba(255, 255, 255, 0.20) 100%),
+                            /* linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.80) 33.67%, rgba(255, 255, 255, 0.20) 100%),  */
+                            url('../../Assets/SliderProjects.png');
+    }
+
+.TextDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+    .Title{
+        padding-left: 13vh;
+
+        width: 480px;
+
+        font-family: Typographica;
+        /* color: var(--purple, #5332D8); */
+        color: white;
+        font-size: 70px;
+        font-weight: 400;
+        line-height: 88.4%;
+    }
+
+    .Description{
+        padding-left: 13vh;
+
+        width: 467px;
+        height: 140px;
+
+        color: var(--Grey-1, rgba(0, 0, 0, 0.70));
+        color: white;
+
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }

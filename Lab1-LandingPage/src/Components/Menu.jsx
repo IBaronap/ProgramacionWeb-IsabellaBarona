@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from './Button'
+import { NavLink } from 'react-router-dom'
 
 export function Menu ({ menu }) {
   const menuStyles = {
@@ -25,28 +26,38 @@ export function Menu ({ menu }) {
 
 function Dropdown ({ item }) {
   const [showList, setShowList] = useState(false)
-  const { id, text, options } = item
+  const { id, text, options, path } = item
 
   const toggleShowList = () => setShowList(true)
 
   const toggleState = () => setShowList((prevState) => !prevState)
+
+  const getIsCurrentPage = ({ isActive }) => {
+    return isActive ? 'is-current-page' : ''
+  }
+
+  const btnClassName = showList ? 'is-hover' : ''
 
   const hoverStyle = {
     fontWeight: '500',
     textDecoration: 'inherit',
     margin: '0 1vh',
     padding: '2vh',
-    color: showList ? 'white' : '#2cbbc3',
-    backgroundColor: showList ? '#2cbbc3' : '#e1f1f2',
-    cursor: showList ? 'pointer' : 'auto',
     borderRadius: '10px'
   }
 
   return (
-    <li key={id} onMouseLeave={toggleState}>
-      <a style={hoverStyle} onMouseEnter={toggleShowList}>
-        {text}
-      </a>
+    <li 
+      key={id} 
+      onMouseLeave={toggleState}
+    >
+      <NavLink to={path}
+                className={getIsCurrentPage}
+      >
+        <a style={hoverStyle} className={btnClassName} onMouseEnter={toggleShowList}>
+          {text}
+        </a>
+      </NavLink>
       {
         showList ? <Dropdownlist options={options} /> : null
       }

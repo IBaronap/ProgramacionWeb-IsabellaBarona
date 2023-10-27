@@ -18,10 +18,26 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  margin: 8vh 0;
+  margin: 15vh 2vw;
 }
 
 h2 {
   font-size: 2.2em;
   line-height: 1.1;
+}
+
+a{
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.is-current-page a{
+  background-color: #1a999f;
+  color: white;
+  pointer-events: none;
+}
+
+.is-hover{
+    color: white;
+    background-color: var(--blue);
 }
