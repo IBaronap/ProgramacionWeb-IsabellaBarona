@@ -34,11 +34,11 @@ export const Header = memo(function Header () {
 
   return (
     <header className={styles.Header}>
-      <h1>Logo</h1>
+      <img className={styles.Logo} src='./src/Assets/LogoTradi.svg' />
       <Menu menu={items} />
       <div className={styles.User}>
         <h3>Juanes</h3>
-        <img src='./src/Assets/UserPic.jpeg' />
+        <img src='./src/Assets/UserPic.png' />
       </div>
       <Button onClick={() => navigate('/')} title='Logout' />
     </header>

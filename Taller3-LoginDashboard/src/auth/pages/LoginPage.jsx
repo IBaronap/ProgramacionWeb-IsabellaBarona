@@ -4,14 +4,15 @@ import styles from './LoginPage.module.css'
 
 export function LoginPage () {
   return (
-    <div className={styles.DivFlex}>
-      <div className={styles.DivForm}>
+    <div className={styles.Content}>
+      <div className={styles.ContentLeft}>
         <h1>Login</h1>
-        <p>Texto bonito</p>
+        <p>Welcome to a world of awesome recipes!</p>
         <Form />
       </div>
-      <div className={styles.DivLogo}>
-        <h1>Logo</h1>
+
+      <div className={styles.ContentRight}>
+        <img className={styles.Logo} src='./src/Assets/LogoTradi.svg' />
       </div>
     </div>
   )

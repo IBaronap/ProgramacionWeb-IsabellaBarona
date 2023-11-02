@@ -16,18 +16,23 @@
         margin: 0;
     }
 
-    .Header img{
-        width: 58px;
-        height: 58px;
-        border-radius: 50px;
-        margin-left: 20px;
+    
+    .Logo{
+        width: 4vw;
     }
-
+    
     .Menu{
         display: flex;
         gap: 5vw;
     }
-
+    
         .User{
             display: flex;
+        }
+
+        .User img{
+            width: 58px;
+            height: 58px;
+            border-radius: 50px;
+            margin-left: 20px;
         }
