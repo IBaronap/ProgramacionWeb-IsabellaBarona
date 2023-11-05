@@ -5,10 +5,8 @@ import { useNavigate } from 'react-router-dom'
 
 export function RecipeCard () {
   const {
-    recipes
+    filteredRecipes
   } = useUserApp()
-
-  console.log(recipes)
 
   const altImage = './src/Assets/NoImage.png'
 
@@ -19,7 +17,7 @@ export function RecipeCard () {
       <div className={styles.CardGrid}>
 
         {
-        recipes.map(recipe => {
+        filteredRecipes.map(recipe => {
           const { id, title, photoUrl } = recipe
           return (
             <div onClick={() => navigate(`/${id}`)} className={styles.Card} key={`recipe-${id}`}>

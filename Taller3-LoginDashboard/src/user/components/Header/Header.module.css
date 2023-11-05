@@ -19,11 +19,12 @@
     
     .Logo{
         width: 4vw;
+        cursor: pointer;
     }
     
     .Menu{
         display: flex;
-        gap: 5vw;
+        gap: 1vw;
     }
     
         .User{

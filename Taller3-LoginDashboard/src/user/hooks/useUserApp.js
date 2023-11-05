@@ -13,9 +13,13 @@ export const useUserApp = () => {
     setError,
     recipes,
     setRecipes,
+    selectedCategory,
+    setSelectedCategory,
     isLoading,
     setIsLoading
   } = context
+
+  // Use effect
 
   useEffect(() => {
     console.log('useApp is running')
@@ -35,7 +39,17 @@ export const useUserApp = () => {
     console.log('getRecipes volvió a definirse')
   }, [getRecipes])
 
-  const recipesCopy = [...recipes] // Copia recipes para no dañar el array original
+  // Filter recipes (cuisine)
+
+  const filteredRecipes = selectedCategory === 'All'
+    ? recipes
+    : recipes.filter(recipe => {
+      // Si la propiedad "cuisine" es una cadena vacía, considera que pertenece a la categoría "Other"
+      return selectedCategory === 'Other' ? !recipe.cuisine : recipe.cuisine === selectedCategory
+    })
+  // Trending recipes
+
+  const recipesCopy = [...filteredRecipes] // Copia recipes para no dañar el array original
 
   const trendingRecipes = [] // Array de los 4 recipes al azar
 
@@ -51,7 +65,10 @@ export const useUserApp = () => {
     {
       error,
       recipes,
+      filteredRecipes,
       trendingRecipes,
+      selectedCategory,
+      setSelectedCategory,
       isLoading
     }
   )

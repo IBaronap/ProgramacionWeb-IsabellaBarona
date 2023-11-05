@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 0;
-    margin: 6vh 0 12vh;
+    margin: 6vh 0 8vh;
     gap: 10vh;
 }
 
@@ -34,7 +34,7 @@
     .Image{
         object-fit: cover;
         width: 19vw;
-        height: 25vh;
+        height: 20vh;
     }
 
     .Tag{
