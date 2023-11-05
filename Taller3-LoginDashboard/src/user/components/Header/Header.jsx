@@ -37,13 +37,13 @@ export const Header = memo(function Header () {
     setSelectedCategory
   } = useUserApp()
 
-  const handleCategoryClick = () => {
+  const handleAll = () => {
     setSelectedCategory('All')
   }
 
   return (
     <header className={styles.Header}>
-      <img onClick={handleCategoryClick} className={styles.Logo} src='./src/Assets/LogoTradi.svg' />
+      <img onClick={handleAll} className={styles.Logo} src='./src/Assets/LogoTradi.svg' />
       <Menu items={items} setSelectedCategory={setSelectedCategory} />
       <div className={styles.User}>
         <h3>Juanes</h3>

@@ -4,10 +4,17 @@ import { useUserApp } from '../hooks/useUserApp'
 
 export function DashboardPage () {
   const {
+    isLoading,
     error,
-    // selectedCategory,
-    isLoading
+    recipesQuantity
   } = useUserApp()
+
+  const loadingStyle = {
+    textAlign: 'center',
+    margin: '40vh 40vw',
+    padding: '0',
+    color: '#861629'
+  }
 
   const mainStyle = {
     textAlign: 'left',
@@ -15,7 +22,12 @@ export function DashboardPage () {
   }
 
   if (isLoading) {
-    return (<p>Loading...</p>)
+    return (
+      <>
+        <Header />
+        <h1 style={loadingStyle}>Loading...</h1>
+      </>
+    )
   }
 
   if (error) {
@@ -32,6 +44,7 @@ export function DashboardPage () {
         </div>
         <div>
           <h1>Find recipes</h1>
+          <p>We found <b> {recipesQuantity} recipes</b> for you</p>
           <RecipeCard />
         </div>
       </main>

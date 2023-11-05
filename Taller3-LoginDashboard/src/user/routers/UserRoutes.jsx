@@ -13,7 +13,7 @@ export function UserRouter () {
             element={<DashboardPage />}
           />
           <Route
-            path='/:id'
+            path='/recipe/:id'
             element={<ItemDetailPage />}
           />
           <Route

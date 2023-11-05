@@ -19,6 +19,11 @@ export const useUserApp = () => {
     setIsLoading
   } = context
 
+  // window.onload = function () {
+  //   console.log('Window loaded')
+  //   setIsLoading(true)
+  // }
+
   // Use effect
 
   useEffect(() => {
@@ -35,21 +40,20 @@ export const useUserApp = () => {
       .finally(() => setIsLoading(false))
   }, [])
 
-  useEffect(() => {
-    console.log('getRecipes volvió a definirse')
-  }, [getRecipes])
-
   // Filter recipes (cuisine)
 
-  const filteredRecipes = selectedCategory === 'All'
+  const cuisineFilter = selectedCategory === 'All'
     ? recipes
     : recipes.filter(recipe => {
-      // Si la propiedad "cuisine" es una cadena vacía, considera que pertenece a la categoría "Other"
+      // Si " ", pertenece a "Other"
       return selectedCategory === 'Other' ? !recipe.cuisine : recipe.cuisine === selectedCategory
     })
+
+  const recipesQuantity = cuisineFilter.length
+
   // Trending recipes
 
-  const recipesCopy = [...filteredRecipes] // Copia recipes para no dañar el array original
+  const recipesCopy = [...cuisineFilter] // Copia recipes para no dañar el array original
 
   const trendingRecipes = [] // Array de los 4 recipes al azar
 
@@ -64,8 +68,8 @@ export const useUserApp = () => {
   return (
     {
       error,
-      recipes,
-      filteredRecipes,
+      cuisineFilter,
+      recipesQuantity,
       trendingRecipes,
       selectedCategory,
       setSelectedCategory,
