@@ -28,6 +28,7 @@
     
         .User{
             display: flex;
+            cursor: pointer;
         }
 
         .User img{

@@ -6,7 +6,7 @@ export function LoginPage () {
   return (
     <div className={styles.Content}>
       <div className={styles.ContentLeft}>
-        <h1>Login</h1>
+        <h1>Log in</h1>
         <p>Welcome to a world of awesome recipes!</p>
         <Form />
       </div>

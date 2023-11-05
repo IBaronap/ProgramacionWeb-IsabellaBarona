@@ -5,6 +5,7 @@
   background-color: whitesmoke;
 
   --MainOrange: #F9AF38;
+  --Tangerine: #FF2828;
   --MainRed: #861629;
 }
 
@@ -22,4 +23,8 @@ h1 {
 #app {
   padding: 2rem;
   text-align: center;
+}
+
+a:link {
+  text-decoration: none;
 }

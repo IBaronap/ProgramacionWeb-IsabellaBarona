@@ -1,12 +1,10 @@
 import { UserContext } from './UserContext'
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 
 export function UserContextProvider ({ children }) {
   const [error, setError] = useState(null)
-  const [recipes, setRecipes] = useState([{ title: 'Prueba' }])
+  const [recipes, setRecipes] = useState([{ title: 'The recipes have not arrived' }])
   const [isLoading, setIsLoading] = useState(false)
-
-  const isFirstTime = useRef(true)
 
   return (
     <UserContext.Provider value={{
@@ -15,8 +13,7 @@ export function UserContextProvider ({ children }) {
       recipes,
       setRecipes,
       isLoading,
-      setIsLoading,
-      isFirstTime
+      setIsLoading
     }}
     >
       {children}

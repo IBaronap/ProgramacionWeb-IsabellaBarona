@@ -15,7 +15,6 @@ export const fetchRecipes = async () => {
         const { id, title, course, cuisine, totalTime, servings, ingredients, directions, photoUrl, calories } = recipe
         return new RecipesModel(id, title, course, cuisine, totalTime, servings, ingredients, directions, photoUrl, calories)
       })
-      console.log(newRecipe)
       return newRecipe
     })
     .catch((e) => {

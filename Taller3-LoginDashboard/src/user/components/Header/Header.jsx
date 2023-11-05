@@ -6,28 +6,23 @@ import styles from './Header.module.css'
 export const Header = memo(function Header () {
   const items = [{
     id: 1,
-    title: 'Asian',
-    src: ''
+    title: 'Asian'
   },
   {
     id: 2,
-    title: 'American',
-    src: ''
+    title: 'American'
   },
   {
     id: 3,
-    title: 'Italian',
-    src: ''
+    title: 'Italian'
   },
   {
     id: 4,
-    title: 'Mexican',
-    src: ''
+    title: 'Mexican'
   },
   {
     id: 5,
-    title: 'Other',
-    src: ''
+    title: 'Other'
   }]
 
   const navigate = useNavigate()
@@ -35,7 +30,7 @@ export const Header = memo(function Header () {
   return (
     <header className={styles.Header}>
       <img className={styles.Logo} src='./src/Assets/LogoTradi.svg' />
-      <Menu menu={items} />
+      <Menu items={items} />
       <div className={styles.User}>
         <h3>Juanes</h3>
         <img src='./src/Assets/UserPic.png' />
@@ -45,7 +40,21 @@ export const Header = memo(function Header () {
   )
 })
 
-export function Menu ({ menu }) {
+export function Menu ({ items }) {
+  return (
+    <nav>
+      <ul className={styles.Menu}>
+        {
+            items.map((item) => {
+              return <Dropdown key={item.id} item={item} />
+            })
+        }
+      </ul>
+    </nav>
+  )
+}
+
+function Dropdown ({ item }) {
   const [hover, setHover] = useState(false)
 
   const toggleHover = () => setHover(true)
@@ -57,19 +66,14 @@ export function Menu ({ menu }) {
     backgroundColor: hover ? '#861629' : 'transparent',
     padding: '2vh',
     borderRadius: '5px',
-    transition: 'all 0.5s',
+    transition: 'all 0.25s',
     cursor: 'pointer'
+
   }
 
   return (
-    <nav>
-      <ul className={styles.Menu}>
-        {
-            menu.map((menu) => {
-              return <p key={menu.id} onMouseLeave={toggleState} onMouseEnter={toggleHover} style={hoverStyle}>{menu.title}</p>
-            })
-        }
-      </ul>
-    </nav>
+    <div key={item.id} onMouseLeave={toggleState}>
+      <p onMouseEnter={toggleHover} style={hoverStyle}>{item.title}</p>
+    </div>
   )
 }

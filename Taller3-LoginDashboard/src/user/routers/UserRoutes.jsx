@@ -1,13 +1,12 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { DashboardPage, ItemDetailPage, NotFoundPage } from '../pages'
-
 import { UserContextProvider } from '../context/UserContextProvider'
 
 export function UserRouter () {
   return (
-    <main>
-      <UserContextProvider>
+    <UserContextProvider>
+      <main>
         <Routes>
           <Route
             path='/Dashboard'
@@ -22,7 +21,7 @@ export function UserRouter () {
             element={<NotFoundPage />}
           />
         </Routes>
-      </UserContextProvider>
-    </main>
+      </main>
+    </UserContextProvider>
   )
 }

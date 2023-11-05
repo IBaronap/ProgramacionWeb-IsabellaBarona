@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useContext } from 'react'
-import debounce from 'just-debounce-it'
 import { fetchRecipes } from '../services/fetchRecipes'
 import { UserContext } from '../context/UserContext'
 
@@ -15,8 +14,7 @@ export const useUserApp = () => {
     recipes,
     setRecipes,
     isLoading,
-    setIsLoading,
-    isFirstTime
+    setIsLoading
   } = context
 
   useEffect(() => {
@@ -25,26 +23,36 @@ export const useUserApp = () => {
   }, [])
 
   // Fetching
-  const getRecipes = useCallback(
-    debounce(() => {
-      fetchRecipes()
-        .then(json => setRecipes(json))
-        .catch(e => setError(e))
-        .finally(() => setIsLoading(false))
-    }, 500)
-    , [])
+
+  const getRecipes = useCallback(() => {
+    fetchRecipes()
+      .then(newRecipe => setRecipes(newRecipe))
+      .catch(e => setError(e))
+      .finally(() => setIsLoading(false))
+  }, [])
 
   useEffect(() => {
     console.log('getRecipes volvió a definirse')
-    console.log(recipes)
   }, [getRecipes])
+
+  const recipesCopy = [...recipes] // Copia recipes para no dañar el array original
+
+  const trendingRecipes = [] // Array de los 4 recipes al azar
+
+  // Seleccionar 4 objetos al azar.
+  for (let i = 0; i < 4; i++) {
+    if (recipesCopy.length > 0) {
+      const randomIndex = Math.floor(Math.random() * recipesCopy.length)
+      trendingRecipes.push(recipesCopy.splice(randomIndex, 1)[0])
+    }
+  }
 
   return (
     {
       error,
       recipes,
-      isLoading,
-      isFirstTime
+      trendingRecipes,
+      isLoading
     }
   )
 }

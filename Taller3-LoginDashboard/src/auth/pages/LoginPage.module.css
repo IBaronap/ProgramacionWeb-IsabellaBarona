@@ -10,6 +10,10 @@
       align-items: center;
   }
 
+  .ContentLeft h1 {
+    color: var(--MainOrange);
+  }
+
   .ContentRight {
       background-color: var(--MainOrange);
       width: 45vw;

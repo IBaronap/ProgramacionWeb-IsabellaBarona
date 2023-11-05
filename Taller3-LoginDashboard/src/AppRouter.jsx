@@ -11,6 +11,7 @@ export function AppRouter () {
           path='/'
           element={<LoginPage />}
         />
+
         <Route
           path='/*'
           element={<UserRouter />}

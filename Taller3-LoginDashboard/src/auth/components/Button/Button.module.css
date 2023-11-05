@@ -4,7 +4,7 @@
     width: 8vw;
     height: 6vh;
     border-radius: 9px;
-    background: #FF2828;
+    background: var(--Tangerine);
     border: none;
     color: #FFF;
     text-align: center;
