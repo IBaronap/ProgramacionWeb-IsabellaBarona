@@ -14,7 +14,6 @@ export const useUserApp = () => {
     recipes,
     setRecipes,
     selectedCategory,
-    setSelectedCategory,
     isLoading,
     setIsLoading
   } = context
@@ -67,7 +66,6 @@ export const useUserApp = () => {
       recipesQuantity,
       trendingRecipes,
       selectedCategory,
-      setSelectedCategory,
       isLoading
     }
   )
