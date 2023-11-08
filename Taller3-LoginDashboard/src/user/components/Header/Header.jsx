@@ -1,6 +1,6 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useUserApp } from '../../hooks/useUserApp'
+import { UserContext } from '../../context/UserContext'
 import { Button } from '../Button/Button'
 import styles from './Header.module.css'
 
@@ -33,18 +33,10 @@ export const Header = memo(function Header () {
 
   const navigate = useNavigate()
 
-  const {
-    setSelectedCategory
-  } = useUserApp()
-
-  const handleAll = () => {
-    setSelectedCategory('All')
-  }
-
   return (
     <header className={styles.Header}>
-      <img onClick={handleAll} className={styles.Logo} src='./src/Assets/LogoTradi.svg' />
-      <Menu items={items} setSelectedCategory={setSelectedCategory} />
+      <img onClick={() => navigate('/Dashboard')} className={styles.Logo} src='./src/Assets/LogoTradi.svg' />
+      <Menu items={items} />
       <div className={styles.User}>
         <h3>Juanes</h3>
         <img src='./src/Assets/UserPic.png' />
@@ -78,7 +70,7 @@ function Dropdown ({ item }) {
   const {
     selectedCategory,
     setSelectedCategory
-  } = useUserApp()
+  } = useContext(UserContext)
 
   const handleCategoryClick = () => {
     setSelectedCategory(item.title)

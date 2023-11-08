@@ -19,11 +19,6 @@ export const useUserApp = () => {
     setIsLoading
   } = context
 
-  // window.onload = function () {
-  //   console.log('Window loaded')
-  //   setIsLoading(true)
-  // }
-
   // Use effect
 
   useEffect(() => {
