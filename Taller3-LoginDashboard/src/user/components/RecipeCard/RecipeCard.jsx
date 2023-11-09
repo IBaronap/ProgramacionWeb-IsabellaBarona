@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 export function RecipeCard () {
   const {
-    cuisineFilter
+    calorieFilteredRecipes
   } = useUserApp()
 
   const altImage = './src/Assets/NoImage.png'
@@ -17,10 +17,10 @@ export function RecipeCard () {
       <div className={styles.CardGrid}>
 
         {
-        cuisineFilter.map(recipe => {
+        calorieFilteredRecipes.map(recipe => {
           const { id, title, photoUrl } = recipe
           return (
-            <div onClick={() => navigate(`/recipe/${id}`)} className={styles.Card} key={`recipe-${id}`}>
+            <div onClick={() => navigate(`/recipe/${id}`, { state: recipe })} className={styles.Card} key={`recipe-${id}`}>
               <div>
                 <img
                   className={styles.Image}
@@ -55,7 +55,7 @@ export function TrendingCard () {
         trendingRecipes.map(trendingRecipe => {
           const { id, title, photoUrl } = trendingRecipe
           return (
-            <div onClick={() => navigate(`/recipe/${id}`)} className={styles.Card} key={`trending-${id}`}>
+            <div onClick={() => navigate(`/recipe/${id}`, { state: trendingRecipe })} className={styles.Card} key={`trending-${id}`}>
               <div>
                 <img
                   className={styles.TrendingImage}

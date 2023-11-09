@@ -6,6 +6,7 @@ export function UserContextProvider ({ children }) {
   const [recipes, setRecipes] = useState([{ title: 'The recipes have not arrived' }])
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [isLoading, setIsLoading] = useState(false)
+  const [sliderValue, setSliderValue] = useState(560)
 
   return (
     <UserContext.Provider value={{
@@ -16,7 +17,9 @@ export function UserContextProvider ({ children }) {
       selectedCategory,
       setSelectedCategory,
       isLoading,
-      setIsLoading
+      setIsLoading,
+      sliderValue,
+      setSliderValue
     }}
     >
       {children}

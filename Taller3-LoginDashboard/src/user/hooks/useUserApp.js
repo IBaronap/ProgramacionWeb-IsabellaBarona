@@ -15,7 +15,8 @@ export const useUserApp = () => {
     setRecipes,
     selectedCategory,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    sliderValue
   } = context
 
   // Use effect
@@ -43,7 +44,11 @@ export const useUserApp = () => {
       return selectedCategory === 'Other' ? !recipe.cuisine : recipe.cuisine === selectedCategory
     })
 
-  const recipesQuantity = cuisineFilter.length
+  // Filter recipes (calories)
+
+  const calorieFilteredRecipes = cuisineFilter.filter(recipe => recipe.calories <= sliderValue)
+
+  const recipesQuantity = calorieFilteredRecipes.length
 
   // Trending recipes
 
@@ -62,7 +67,7 @@ export const useUserApp = () => {
   return (
     {
       error,
-      cuisineFilter,
+      calorieFilteredRecipes,
       recipesQuantity,
       trendingRecipes,
       selectedCategory,

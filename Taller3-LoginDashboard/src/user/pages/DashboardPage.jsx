@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, RecipeCard, TrendingCard } from '../components'
+import { Header, SliderCard, RecipeCard, TrendingCard } from '../components'
 import { useUserApp } from '../hooks/useUserApp'
 
 export function DashboardPage () {
@@ -44,6 +44,7 @@ export function DashboardPage () {
         </div>
         <div>
           <h1>Find recipes</h1>
+          <SliderCard />
           <p>We found <b> {recipesQuantity} recipes</b> for you</p>
           <RecipeCard />
         </div>

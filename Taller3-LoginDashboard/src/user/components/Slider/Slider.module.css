@@ -1,0 +1,13 @@
+.SilderFilter{
+    margin-bottom: 4vh;
+}
+
+    .SilderFilter h4, .SilderFilter p{
+        margin: 0;
+    }
+
+    .Slider{
+        accent-color: var(--Tangerine);
+        padding: 0;
+        margin: 0;
+    }

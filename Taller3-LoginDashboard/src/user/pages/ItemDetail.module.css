@@ -1,0 +1,51 @@
+.RecipeContent{
+    display: flex;
+}
+
+.RecipeDescription{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 57vw;
+}
+
+    .header{
+        background-color: var(--MainOrange);
+        position: sticky;
+        top: 0;
+        left: 0;
+        margin: -5vh 0 0 -2.1vw;
+        padding: 4vh 2vh 4vh 4vw;
+        line-height: 0%;
+    }
+
+    .main {
+        margin: 0 0 0 2vw;
+        padding-right: 5vw;
+    }
+        
+        .RecipeCaracteristics{
+            margin: 5vh 0 0 0;
+            line-height: 1;
+        }
+
+        .RecipeIndications{
+            margin: 5vh 0 0 0;
+        }
+
+.RecipeImage{
+    background-color: var(--MainOrange);
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+    .RecipeImage img {
+        object-fit: cover;
+        width: 40vw;
+        height: 100vh;
+    }

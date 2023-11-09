@@ -10,6 +10,7 @@
     height: 9vh;
     background-color: var(--MainOrange);
     z-index: 1;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
     .Header h1{

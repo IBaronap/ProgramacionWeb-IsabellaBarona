@@ -10,7 +10,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.5s;
-    margin: 5vh;
+    margin: 0;
 
     &:hover{
         background-color: var(--MainRed);
