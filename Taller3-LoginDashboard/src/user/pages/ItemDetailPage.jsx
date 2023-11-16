@@ -23,7 +23,7 @@ export function ItemDetailPage () {
     <div className={styles.RecipeContent}>
       <div className={styles.RecipeDescription}>
         <header className={styles.header}>
-          <Button onClick={() => navigate('/Dashboard')} title='Go back' />
+          <Button onClick={() => navigate('/dashboard')} title='Go back' />
           <h1>{title}</h1>
           <h3>{course}</h3>
         </header>

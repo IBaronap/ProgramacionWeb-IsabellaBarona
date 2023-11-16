@@ -28,3 +28,38 @@ h1 {
 a:link {
   text-decoration: none;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(250, 176, 56, 0.1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  height: 5px;
+  background: var(--Tangerine);
+  transition: all 0.25s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--MainRed);
+}
+
+/* Swal (alert) library customization */
+.swal-button {
+  background-color: var(--Tangerine) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  transition: all 0.25s;
+  &&:focus{
+    box-shadow: none !important;
+  }
+  &&:hover{
+    background-color: var(--MainRed) !important;
+  }
+}

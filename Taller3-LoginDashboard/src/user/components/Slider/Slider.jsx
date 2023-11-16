@@ -12,6 +12,7 @@ export function SliderCard () {
   return (
     <div>
       <div className={styles.SilderFilter}>
+        <h4>Filter by calories</h4>
         <input
           className={styles.Slider}
           type='range'

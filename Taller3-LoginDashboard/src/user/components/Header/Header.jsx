@@ -35,7 +35,11 @@ export const Header = memo(function Header () {
 
   return (
     <header className={styles.Header}>
-      <img onClick={() => navigate('/Dashboard')} className={styles.Logo} src='./src/Assets/LogoTradi.svg' />
+      <img
+        className={styles.Logo}
+        src='./src/Assets/LogoTradi.svg'
+        onClick={() => navigate('/Dashboard')}
+      />
       <Menu items={items} />
       <div className={styles.User}>
         <h3>Juanes</h3>

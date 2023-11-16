@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { DashboardPage, ItemDetailPage, NotFoundPage } from '../pages'
 import { UserContextProvider } from '../context/UserContextProvider'
+import { PrivateRoute } from './PrivateRoute'
 
 export function UserRouter () {
   return (
@@ -9,12 +10,20 @@ export function UserRouter () {
       <main>
         <Routes>
           <Route
-            path='/Dashboard'
-            element={<DashboardPage />}
+            path='/dashboard'
+            element={
+              <PrivateRoute>
+                <DashboardPage />
+              </PrivateRoute>
+            }
           />
           <Route
             path='/recipe/:id'
-            element={<ItemDetailPage />}
+            element={
+              <PrivateRoute>
+                <ItemDetailPage />
+              </PrivateRoute>
+          }
           />
           <Route
             path='/*'

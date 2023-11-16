@@ -1,11 +1,28 @@
 import { AuthContext } from './AuthContext'
-import React from 'react'
+import React, { useState } from 'react'
 
 export function AuthContextProvider ({ children }) {
-  return (
-    <AuthContext.Provider value={{
+  const [isLogged, setIsLogged] = useState(false)
+  const [users, setUsers] = useState(
+    [{
+      email: 'IsaBaro@gmail.com',
+      password: 'Contra123'
+    },
+    {
+      email: 'AndresN@gmail.com',
+      password: 'Contra456'
+    }]
+  )
 
-    }}
+  return (
+    <AuthContext.Provider value={
+      {
+        isLogged,
+        setIsLogged,
+        users,
+        setUsers
+      }
+  }
     >
       {children}
     </AuthContext.Provider>
