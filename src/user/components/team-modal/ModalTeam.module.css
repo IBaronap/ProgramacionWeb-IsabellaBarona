@@ -1,0 +1,185 @@
+Body{
+    overflow-x: hidden;
+}
+
+.Overlay{
+    background-color: rgba(0, 0, 0, 0.50);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    z-index: 4;
+}
+
+
+.ModalTeam{
+    width: 70vw;
+    position: fixed;
+    margin-top: 7vh;
+    margin-bottom: 30vh;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5rem;
+
+
+    color: white;
+    text-align: left;
+    font-family: Montserrat;
+}
+
+.btnClose{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2vh;
+    z-index: 2;
+}
+
+.HeaderModal{
+
+    height: 40vh;
+    margin: 0;
+    padding: 0 10vh ;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left;
+    overflow: hidden;
+    
+}
+
+.HeaderModal h1{
+    font-weight: normal;
+    margin: 1vh 0;
+    font-size: 60px;
+    color: white;
+}
+
+.HeaderModal h3{
+    font-weight: 1000;
+    margin: 0;
+}
+
+.HeaderModal div{
+    margin-bottom: 0.5vh;
+    margin-top: 0;
+}
+
+.HeaderModal img{
+    max-width: 40vw;
+    max-height: 40vh;
+    padding-left: 20vw;
+}
+
+.backgroundContent{
+    background-color: #10121E;
+    margin: 0;
+    padding: 5vh 10vh;
+
+}
+.ContentModal{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left; 
+     
+  
+}
+
+    .ContentLeft{
+        margin: 0;
+        width: 60%;
+        
+    }
+        .ContentLeft h2{
+            margin: 0;
+            
+        }
+        
+    
+    .ContentRight{
+        margin: 0;
+    }
+        .ContentRight h4{
+            margin: 0;
+            padding-bottom: 1vh;
+        }
+
+        .ToolLogos{
+            margin: 0 0;
+        }
+
+            .ToolLogo{
+                width: 2vw;
+                margin: 0 2vh 3vh 0;
+            }
+          
+    .btnFirst{
+        margin: 0 auto;
+      
+    }
+    
+
+    .wave {
+        position: absolute;
+        width: 90vw;
+        height: 90vw;
+        opacity: 0.6;
+        left: -15%;
+        top: -100%;
+        z-index: -1;
+        /* margin-left: -50%;
+        margin-top: -70%; */
+        background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+      }
+
+      .wave:nth-child(2){
+        top: 40px
+      }
+.wave:nth-child(3) {
+  top: 120px;
+}
+
+.playing .wave {
+  border-radius: 40%;
+  animation: wave 12000ms infinite linear;
+}
+
+.wave {
+  border-radius: 40%;
+  animation: wave 80s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+  animation-duration: 15000ms;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 90s;
+}
+
+.playing .wave:nth-child(3) {
+  animation-duration: 17000ms;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 60s;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

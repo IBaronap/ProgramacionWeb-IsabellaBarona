@@ -1,5 +1,5 @@
 {
-  "name": "fractal",
+  "name": "finalfractal",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,9 +9,13 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^4.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.17.0"
+    "react-router-dom": "^6.17.0",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "firebase": "^10.7.0",
+    "sweetalert2": "^11.6.13"
   }
 }
